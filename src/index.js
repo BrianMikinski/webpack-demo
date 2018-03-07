@@ -12,9 +12,21 @@ function component() {
     btn.innerHTML = 'Click me and check the console!';
     btn.onclick = printMe;
 
+    var test = "hello world";
+    //var nice ="";
+    var testing = "";
+    let newtest = "";
+
     element.appendChild(btn);
 
     return element;
 }
 
 document.body.appendChild(component());
+
+
+if (module.hot) {
+    module.hot.accept('./index.js', function () {
+        console.log('Accepting the updated index module!');
+    })
+}
