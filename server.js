@@ -7,15 +7,13 @@ const webpackHotMiddleWare = require("webpack-hot-middleware");
 const app = express();
 const compiler = webpack(webpackConfig);
 
-
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
 app.use(webpackDevMiddleware(compiler, {
   publicPath: webpackConfig.output.publicPath,
   stats: {
     colors: true
-  },
-  historyApiFallback: true
+  }
 }));
 
 app.use(webpackHotMiddleWare(compiler, {
